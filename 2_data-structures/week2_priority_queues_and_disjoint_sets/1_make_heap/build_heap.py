@@ -4,10 +4,10 @@ data = []
 size = 0
 
 def left_child(i):
-    return 2*i
+    return 2*i + 1
 
 def right_child(i):
-    return 2*i + 1
+    return 2*i + 2
 
 def sift_down(i):
     global size
@@ -15,26 +15,27 @@ def sift_down(i):
     global swaps
     
     min_index = i 
-    
     l = left_child(i) 
-    if l <= size and data[l - 1] < data[min_index - 1]:
-        min_index = l
+    if l <= size and data[l] < data[min_index]:
+        min_index = l 
 
-    r = right_child(i)    
-    if r <= size and data[r - 1] < data[min_index - 1]:
-        min_index = r
-    
+    r = right_child(i)     
+    if r <= size and data[r] < data[min_index]:
+        min_index = r 
+        
     if i != min_index:
-        data[i - 1], data[min_index - 1] = data[min_index - 1], data[i - 1]
+        swaps.append([i, min_index])
+        data[i], data[min_index] = data[min_index], data[i]
         sift_down(min_index)
-        swaps.append([i - 1, min_index - 1])
+
 
 def build_heap(data):
     global size
-    for i in range (size//2, 0, -1):
+    for i in range ( size //2, -1, -1):
         sift_down(i)
     
     return swaps
+
 
 
 def build_heap_naive(data):
@@ -66,7 +67,7 @@ def main():
     data = list(map(int, input().split()))
     assert len(data) == n
 
-    size = len(data)
+    size = len(data) - 1
     swaps = build_heap(data)
 
     print(len(swaps))
