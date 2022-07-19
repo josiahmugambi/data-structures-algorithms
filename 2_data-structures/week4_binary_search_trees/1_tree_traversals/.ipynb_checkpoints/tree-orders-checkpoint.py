@@ -18,12 +18,6 @@ class TreeOrders:
 
   def inOrder(self):
     self.result = []
-    
-    if self.left == -1 and == len(self.right) -1:
-        return
-    
-    inOrder(self,
-    
     # Finish the implementation
     # You may need to add a new recursive method to do that
                 
