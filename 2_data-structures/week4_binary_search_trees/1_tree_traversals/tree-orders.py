@@ -22,14 +22,13 @@ class TreeOrders:
     def inOrderRecursive(root):
       if self.left[root] != -1:
         inOrderRecursive(self.left[root])
-        self.result.append(self.key[root])
+      self.result.append(self.key[root])
       if self.right[root] != -1:
-        inOrderRecursive(self.left[root])
-    
+        inOrderRecursive(self.right[root])
+          
     inOrderRecursive(0)
     return self.result
 
-#  def preOrder(self):
   def preOrder(self):
     self.result = []
     
@@ -38,16 +37,21 @@ class TreeOrders:
       if self.left[root] != -1:
         preOrderRecursive(self.left[root])
       if self.right[root] != -1:
-        preOrderRecursive(self.left[root])    
+        preOrderRecursive(self.right[root])    
     
     preOrderRecursive(0)
     return self.result
 
   def postOrder(self):
     self.result = []
-    # Finish the implementation
-    # You may need to add a new recursive method to do that
-                
+    def postOrderRecursive(root):
+      if self.left[root] != -1:
+        postOrderRecursive(self.left[root])
+      if self.right[root] != -1:
+        postOrderRecursive(self.right[root])    
+      self.result.append(self.key[root])
+    
+    postOrderRecursive(0)
     return self.result
 
 def main():
