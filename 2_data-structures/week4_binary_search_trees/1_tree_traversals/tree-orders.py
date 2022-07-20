@@ -18,22 +18,29 @@ class TreeOrders:
 
   def inOrder(self):
     self.result = []
+
+    def inOrderRecursive(root):
+      if self.left[root] != -1:
+        inOrderRecursive(self.left[root])
+        self.result.append(self.key[root])
+      if self.right[root] != -1:
+        inOrderRecursive(self.left[root])
     
-    if self.left == -1 and == len(self.right) -1:
-        return
-    
-    inOrder(self,
-    
-    # Finish the implementation
-    # You may need to add a new recursive method to do that
-                
+    inOrderRecursive(0)
     return self.result
 
+#  def preOrder(self):
   def preOrder(self):
     self.result = []
-    # Finish the implementation
-    # You may need to add a new recursive method to do that
-                
+    
+    def preOrderRecursive(root):
+      self.result.append(self.key[root])
+      if self.left[root] != -1:
+        preOrderRecursive(self.left[root])
+      if self.right[root] != -1:
+        preOrderRecursive(self.left[root])    
+    
+    preOrderRecursive(0)
     return self.result
 
   def postOrder(self):
