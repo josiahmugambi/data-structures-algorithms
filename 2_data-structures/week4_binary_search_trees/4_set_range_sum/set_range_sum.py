@@ -132,22 +132,31 @@ def insert(x):
   
 def erase(x): 
   global root
-  # Implement erase yourself
-  pass
+  # if search returns nothing, return
+  if search(x) is False:
+    return
+  root = splay(root)
+  root = merge(root.left, root.right)
+  if root is not None:
+    root.parent = None
 
 def search(x): 
   global root
-  # Implement find yourself
-  
-  return False
+  resp, root = find(root,x)
+  if resp is None or resp.key != x:
+    return False
+  return resp.key == x
   
 def sum(fr, to): 
   global root
   (left, middle) = split(root, fr)
   (middle, right) = split(middle, to + 1)
-  ans = 0
-  # Complete the implementation of sum
-
+  if middle is None:
+    ans = 0
+    root = merge(left, right)
+  else:
+    ans = middle.sum
+    root = merge(merge(left,middle), right)
   return ans
 
 MODULO = 1000000001
