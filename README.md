@@ -7,8 +7,8 @@ Six courses in total, each 3-6 weeks long (about 12-18 hrs a week).
 **This repo has attempts at the programming assignments and challenges. Be sure to stick to the honor code. This repo is primarily for my own use and for discussion with friends.**
 
 - [x] algorithmic-toolbox 
-- [ ] data-structures - in progress
-- [ ] Algorithms on Graphs
+- [x] data-structures
+- [ ] Algorithms on Graphs - in progress
 - [ ] Algorithms on Strings
 - [ ] Advanced Algorithms and Complexity
 - [ ] Genome Assembly Programming Challenge
