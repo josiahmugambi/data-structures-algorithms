@@ -14,8 +14,11 @@ def toposort(adj):
     return order
 
 if __name__ == '__main__':
-    input = sys.stdin.read()
-    data = list(map(int, input.split()))
+    #input = sys.stdin.read()
+    #data = list(map(int, input.split()))
+    data = [4,3,1,2,4,1,3,1]
+    #data = [4,1,3,1]
+    #data = [5,7,2,1,3,2,3,1,4,3,4,1,5,2,5,3]
     n, m = data[0:2]
     data = data[2:]
     edges = list(zip(data[0:(2 * m):2], data[1:(2 * m):2]))
